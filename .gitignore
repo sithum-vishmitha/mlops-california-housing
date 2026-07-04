@@ -1,0 +1,25 @@
+# Virtual Environment
+.venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model Files
+models/
+
+# DVC Cache
+.dvc/cache/
+
+# OS Files
+.DS_Store
+Thumbs.db

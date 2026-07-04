@@ -1,0 +1,21 @@
+import  pandas as pd
+
+df = pd.read_csv("../data/raw/california_housing.csv")
+print("*"*50)
+print("info\n")
+print("*"*50)
+print(df.info())
+print("*"*50)
+print("Head\n")
+print("*"*50)
+print(df.head())
+print("*"*50)
+print("Describe\n")
+print("*"*50)
+print(df.describe())
+print("*"*50)
+print("Null values\n")
+print("*"*50)
+print(df.isnull().sum())
+
+print("Total Null values" , df.isnull().values.sum())
