@@ -1,0 +1,58 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/raw/california_housing.csv
+      hash: md5
+      md5: fa9fe4cf24f70b69ac65fb33062ddf34
+      size: 1915795
+    - path: src/preprocess.py
+      hash: md5
+      md5: dd769069977df9ea1d551fa202f01a19
+      size: 650
+    outs:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: a489c05f398234f7e308988cc5647fb5
+      size: 381516
+    - path: data/processed/train.csv
+      hash: md5
+      md5: aee62e66e0244752512958031858ad16
+      size: 1528660
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/train.csv
+      hash: md5
+      md5: aee62e66e0244752512958031858ad16
+      size: 1528660
+    - path: src/train.py
+      hash: md5
+      md5: 6b3284a13a9b913cdfd77f603c3e7907
+      size: 755
+    outs:
+    - path: models/rf_regression.pkl
+      hash: md5
+      md5: 708a4ea570513c542cc96945dbc3dbc9
+      size: 144744769
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: a489c05f398234f7e308988cc5647fb5
+      size: 381516
+    - path: models/rf_regression.pkl
+      hash: md5
+      md5: 708a4ea570513c542cc96945dbc3dbc9
+      size: 144744769
+    - path: src/evaluate.py
+      hash: md5
+      md5: e47edc443c59e823fc766e0008ef5a2b
+      size: 937
+    outs:
+    - path: reports/metrics.json
+      hash: md5
+      md5: 2182bce18fb1d3e80f8b44506ee4451f
+      size: 132
