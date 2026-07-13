@@ -14,7 +14,7 @@ def main():
     y_test = test_df["MedHouseVal"]
 
     #loas the model
-    model =  joblib.load("../models/linear_regression.pkl")
+    model =  joblib.load("../models/rf_regression.pkl")
 
     predictions = model.predict(x_test)
 
