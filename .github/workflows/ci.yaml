@@ -39,7 +39,7 @@ jobs:
       - name: Configure DVC Authentication
         run: |
           dvc remote modify origin auth basic
-          dvc remote modify user "${{ secrets.DAGSHUB_USERNAME}}" --local
+          dvc remote modify origin  user "${{ secrets.DAGSHUB_USERNAME}}" --local
           dvc remote modify origin password "${{ secrets.DAGSHUB_TOKEN }}" --local
 
       - name: Pull Dataset
