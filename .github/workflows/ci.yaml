@@ -36,6 +36,17 @@ jobs:
         run: |
           pip install dvc
 
+      - name: Configure DVC Authentication
+        run: |
+          dvc remote modify origin auth basic
+          dvc remote modify user "${{ secrets.DAGSHUB_USERNAME}}" --local
+          dvc remote modify origin password "${{ secrets.DAGSHUB_TOKEN }}" --local
+
+      - name: Pull Dataset
+        run: |
+          dvc pull
+          
+
       - name: Run DVC pipeline
 
         run: |
@@ -44,7 +55,7 @@ jobs:
       - name: Show Metrics
 
         run: |
-          cat reports/metric.json
+          cat reports/metrics.json
           
 
 
