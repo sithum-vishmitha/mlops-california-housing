@@ -29,13 +29,13 @@ stages:
       size: 1528660
     - path: src/train.py
       hash: md5
-      md5: 626e5df068522a4422c901496d4cad7c
-      size: 754
+      md5: 6b3284a13a9b913cdfd77f603c3e7907
+      size: 755
     outs:
     - path: models/rf_regression.pkl
       hash: md5
-      md5: 736d3a07aab5552eb7e685415f59b189
-      size: 72390769
+      md5: 708a4ea570513c542cc96945dbc3dbc9
+      size: 144744769
   evaluate:
     cmd: python src/evaluate.py
     deps:
@@ -45,8 +45,8 @@ stages:
       size: 381516
     - path: models/rf_regression.pkl
       hash: md5
-      md5: 736d3a07aab5552eb7e685415f59b189
-      size: 72390769
+      md5: 708a4ea570513c542cc96945dbc3dbc9
+      size: 144744769
     - path: src/evaluate.py
       hash: md5
       md5: e47edc443c59e823fc766e0008ef5a2b
@@ -54,5 +54,5 @@ stages:
     outs:
     - path: reports/metrics.json
       hash: md5
-      md5: 51d6d051d287f4ba99c75303c222c7ad
+      md5: 2182bce18fb1d3e80f8b44506ee4451f
       size: 132
